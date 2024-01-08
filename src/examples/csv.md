@@ -152,12 +152,12 @@ fn main() {
     let mut field_sum: f64 = 0.0;
     let mut record_count: u64 = 0;
 
-    for record in file.into_inner() {
+    for record in file.into_iter() {
         match record.as_rule() {
             Rule::record => {
                 record_count += 1;
 
-                for field in record.into_inner() {
+                for field in record.into_iter() {
                     field_sum += field.as_str().parse::<f64>().unwrap();
                 }
             }
